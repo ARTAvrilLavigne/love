@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -26,7 +26,10 @@
 </head>
 <body>
 
-<img src="./index_files/strawberry.png" style="position: fixed;z-index: 10001;top:10px;left:10px;width: 100px; height: 100px" onclick="let m = document.querySelector('.song-audio-autoplay'); if (m.paused ) {m.play(); this.className = 'rotateImages'} else {m.pause(); this.className = ''}">
+<!-- 音频图标 -->
+<img src="./index_files/strawberry.png" style="position: fixed;z-index: 10001;top:10px;left:10px;width: 100px; height: 100px" 
+     onclick="let m = document.querySelector('.song-audio-autoplay'); if (m.paused ) {m.play(); this.className = 'rotateImages'} else {m.pause(); this.className = ''}">
+<!-- 音频播放标签 -->
 <audio class="song-audio-autoplay" controls loop style="display: none;visibility: hidden" autoplay>
     <source src="./index_files/music.mp3" type="audio/mp3"/>
 </audio>
@@ -53,19 +56,27 @@
             href="http://firefox.com.cn/download/">Firefox</a>)浏览器，或者其他游览器的最新版本。
     </div>
     <div id="wrap">
+	    <!-- 文本内容div -->
         <div id="text" style="top:130px">
-            <div id="code" style="font-size:30px">
-            </div>
+            <div id="code" style="font-size:30px"></div>
         </div>
         <div id="clock-box">
-                    <span id="clock-box-inside-text">
-					</span>
+            <span id="clock-box-inside-text"></span>
             <div id="clock"></div>
         </div>
         <canvas id="canvas" width="1100" height="680"></canvas>
     </div>
 
 </div>
+
+<script>
+    // 解决Html5-audio标签简介及手机端不自动播放问题
+    var audio = document.querySelector('#song-audio-autoplay');
+    //safari和微信
+    document.addEventListener("touchstart", function () {
+       audio.play();
+    }, false);
+</script>
 
 <script type="text/javascript">
     $('#code').html(config.lines.map(item => {
