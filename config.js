@@ -11,5 +11,5 @@ var config = {
     // 年-月-日T时时:分分:秒秒
     date: "2022-07-15T23:00:00",
     // 名字
-    names: ["ART", "CWY"]
+    names: ["CWY", "ART"]
 }
